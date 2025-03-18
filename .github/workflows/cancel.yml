@@ -8,17 +8,4 @@ jobs:
     steps:
       - uses: styfle/cancel-workflow-action
         with:
-          only_status: 'In progress'
-
-
-# name: Cancel
-# on: [push]
-# jobs:
-#   cancel:
-#     name: 'Cancel Previous Runs'
-#     runs-on: ubuntu-latest
-#     timeout-minutes: 3
-#     steps:
-#       - uses: styfle/cancel-workflow-action
-#         with:
-#           all_but_latest: true
+          all_but_latest: true
