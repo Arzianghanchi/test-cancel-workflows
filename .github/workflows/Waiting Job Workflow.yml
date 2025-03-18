@@ -1,12 +1,17 @@
-name: Manual Approval Workflow
+name: Queued Workflow Test
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Manually trigger the workflow
 
 jobs:
-  wait-for-approval:
+  queued-job:
     runs-on: ubuntu-latest
-    environment: "staging"  # Requires manual approval if enabled
     steps:
-      - name: Pending Approval
-        run: echo "Waiting for manual approval before proceeding..."
+      - name: Start Job
+        run: echo "Job started, simulating queue state..."
+      
+      - name: Simulate Queued State
+        run: sleep 600  # Sleep for 10 minutes
+
+      - name: Finish Job
+        run: echo "Job completed after waiting."
