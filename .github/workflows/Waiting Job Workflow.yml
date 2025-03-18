@@ -1,0 +1,14 @@
+name: Waiting Job Workflow
+
+on:
+  workflow_run:
+    workflows: ["Some Other Workflow"]  # Name of another workflow
+    types:
+      - requested  # Triggers when another workflow is requested
+
+jobs:
+  waiting-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Job
+        run: echo "Job is waiting for another workflow to complete..."
