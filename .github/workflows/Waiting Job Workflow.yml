@@ -1,19 +1,26 @@
-name: Queued Workflow Test
-permissions: write-all
-on: [push]
+name: My Awesome Workflow
 
-default:
-  run:
-    timeout-minutes: 1
+on:
+  push:
+
+
 jobs:
-  queued-job:
+  job-one:
+    # This job gets a timeout of 60 minutes as set by the global attribute
     runs-on: ubuntu-latest
     steps:
-      - name: Start Job
-        run: echo "Job started, simulating queue state..."
-      
-      - name: Simulate Queued State
-        run: sleep 120  # Sleep for 10 minutes
-
-      - name: Finish Job
-        run: echo "Job completed after waiting."
+      - name: my awesome step
+        run: echo foo
+  job-two:
+    # This job gets a timeout of 60 minutes as set by the global attribute
+    runs-on: ubuntu-latest
+    steps:
+      - name: my awesome step
+        run: echo bar
+  job-three:
+    # This job gets a timeout of 5 minutes as set by the job level override
+    timeout-minutes: 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: my awesome step
+        run: echo baz
