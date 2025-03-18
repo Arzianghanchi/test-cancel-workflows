@@ -1,7 +1,6 @@
 name: Queued Workflow Test
 
-on:
-  workflow_dispatch:  # Manually trigger the workflow
+on: [push]
 
 jobs:
   queued-job:
