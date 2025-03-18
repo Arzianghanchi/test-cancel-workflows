@@ -1,14 +1,12 @@
-name: Waiting Job Workflow
+name: Manual Approval Workflow
 
 on:
-  workflow_run:
-    workflows: ["Some Other Workflow"]  # Name of another workflow
-    types:
-      - requested  # Triggers when another workflow is requested
+  workflow_dispatch:
 
 jobs:
-  waiting-job:
+  wait-for-approval:
     runs-on: ubuntu-latest
+    environment: "staging"  # Requires manual approval if enabled
     steps:
-      - name: Start Job
-        run: echo "Job is waiting for another workflow to complete..."
+      - name: Pending Approval
+        run: echo "Waiting for manual approval before proceeding..."
