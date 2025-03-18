@@ -3,16 +3,8 @@ name: Queued Workflow Test
 on: [push]
 permissions: write-all
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
-        with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
-
   queued-job:
-    needs: test  # Ensure this job runs after 'test' completes
+    
     runs-on: ubuntu-latest
     steps:
       - name: Start Job
